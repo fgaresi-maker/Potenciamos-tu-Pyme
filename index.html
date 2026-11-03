@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Potenciamos Tu Pyme | Consultora de inteligencia artificial</title>
+<meta name="description" content="Armamos tu IA personalizada a la medida de tu negocio o emprendimiento. Consultora de inteligencia artificial para Pymes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: columna editorial a la izquierda, "libro mayor" de experiencia como pieza central */
+:root{
+  --bg:#EDF0F3; --surface:#F8F9FB; --fg:#0F1A22; --muted:#53636F; --line:#C9D1D8; --accent:#1F4FD8; --accent-fg:#FFFFFF;
+  --f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1419;--surface:#121D24;--fg:#E8EEF2;--muted:#93A4B0;--line:#26343E;--accent:#6E9BFF;--accent-fg:#071433;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1419;--surface:#121D24;--fg:#E8EEF2;--muted:#93A4B0;--line:#26343E;--accent:#6E9BFF;--accent-fg:#071433;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0;padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:clamp(17px,2.6vw,22px);letter-spacing:.06em;text-transform:uppercase}
+header b{font-weight:500}
+header a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent)}
+header a:hover{color:var(--accent)}
+.hero{padding-block:72px 56px}
+.tag{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:.01em;text-transform:uppercase;color:var(--accent);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-wrap:balance;margin:0 0 20px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,8vw,92px);line-height:.98;letter-spacing:-.03em;margin:0;text-wrap:balance;max-width:14ch}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{max-width:60ch;margin:28px 0 0;font-size:19px;color:var(--muted)}
+.lead strong{color:var(--fg);font-weight:500}
+h2{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;margin:0 0 28px;text-wrap:balance}
+section{padding-block:48px;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+.grid>*{min-width:0}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow-x:auto}
+.row{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line);align-items:baseline}
+.row:last-child{border-bottom:0}
+.row.head{font-family:var(--f-mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-block:12px}
+.row .k{font-family:var(--f-mono);font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums}
+.row .v{font-family:var(--f-display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.row .v small{display:block;font-family:var(--f-body);font-weight:400;font-size:15px;color:var(--muted);letter-spacing:0}
+.sizes{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}
+.sizes li{font-family:var(--f-mono);font-size:13px;border:1px solid var(--line);padding:6px 12px;border-radius:99px}
+.big{font-family:var(--f-display);font-weight:800;font-size:clamp(64px,10vw,120px);line-height:.9;letter-spacing:-.04em;color:var(--accent)}
+.contact{padding-block:56px 72px}
+.mail{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px}
+.addr{font-family:var(--f-mono);font-size:clamp(18px,3.2vw,28px);overflow-wrap:anywhere;user-select:all}
+button{font:inherit;font-family:var(--f-mono);font-size:13px;letter-spacing:.04em;background:var(--accent);color:var(--accent-fg);border:0;padding:11px 18px;border-radius:3px;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a.cta{display:inline-block;margin-top:16px;font-family:var(--f-mono);font-size:clamp(17px,2.6vw,22px);color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent)}
+.planbtn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-fg);font-family:var(--f-display);font-weight:800;font-size:clamp(18px,2.6vw,22px);letter-spacing:-.01em;padding:16px 28px;border-radius:4px;text-decoration:none}
+.planbtn:hover{filter:brightness(1.08)}
+header{flex-wrap:wrap}
+.hnav{display:flex;align-items:center;gap:clamp(14px,3vw,28px);flex-wrap:wrap}
+header .planbtn{color:var(--accent-fg);border-bottom:0;font-family:var(--f-mono);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;padding:11px 20px}
+header .planbtn:hover{color:var(--accent-fg)}
+.fli{display:inline-block;background:var(--accent);color:var(--accent-fg);font-size:clamp(18px,2.6vw,24px);font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:14px 30px;border-radius:4px}
+.fli:hover{filter:brightness(1.08);color:var(--accent-fg)}
+.toolbtn{display:inline-block;font-family:var(--f-display);font-weight:600;font-size:clamp(15px,2.2vw,19px);color:var(--accent);background:var(--surface);border:2px solid var(--accent);border-radius:4px;padding:10px 18px;text-decoration:none}
+.toolbtn:hover{background:var(--accent);color:var(--accent-fg)}
+.tl{display:grid;justify-items:center;gap:8px;text-align:center;text-decoration:none;color:var(--fg)}
+.tl:hover span:first-child{background:var(--accent)!important;color:var(--accent-fg)!important}
+.tl span:first-child{transition:background .15s,color .15s}
+#fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+.wrap{position:relative;z-index:1}
+.langbtn{font:inherit;font-family:var(--f-mono);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-fg);background:var(--accent);border:2px solid var(--accent);padding:9px 18px;border-radius:4px;cursor:pointer;line-height:1.6}
+.langbtn:hover{filter:brightness(1.08)}
+footer{align-items:center;border-top:1px solid var(--line);padding-block:22px;font-family:var(--f-mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){.grid{grid-template-columns:1fr;gap:32px}.hero{padding-block:48px 40px}.row{grid-template-columns:1fr;gap:4px}.row.head{display:none}}
+</style>
+
+
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header><b style="display:flex;align-items:center;gap:14px"><svg viewBox="26 26 336 192" role="img" aria-label="Logo PTP Potenciamos Tu Pyme" style="display:block;width:clamp(130px,17vw,180px);height:auto;flex:none"><path d="M96 44 L135 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M239 44 L265 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M96 122 L187 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M187 122 L265 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M44 200 L44 44 L96 44 L122 70 L122 96 L96 122 L44 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M265 200 L265 44 L317 44 L343 70 L343 96 L317 122 L265 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M135 44 L239 44" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M187 44 L187 200" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><circle cx="44" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="200" r="6" style="fill:var(--fg)"/><circle cx="44" cy="44" r="6" style="fill:var(--fg)"/><circle cx="96" cy="44" r="6" style="fill:var(--fg)"/><circle cx="122" cy="70" r="6" style="fill:var(--fg)"/><circle cx="122" cy="96" r="6" style="fill:var(--fg)"/><circle cx="96" cy="122" r="6" style="fill:var(--fg)"/><circle cx="44" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="200" r="6" style="fill:var(--fg)"/><circle cx="265" cy="44" r="6" style="fill:var(--fg)"/><circle cx="317" cy="44" r="6" style="fill:var(--fg)"/><circle cx="343" cy="70" r="6" style="fill:var(--fg)"/><circle cx="343" cy="96" r="6" style="fill:var(--fg)"/><circle cx="317" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="122" r="6" style="fill:var(--fg)"/><circle cx="135" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="239" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="135" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="44" r="6" style="fill:var(--accent)"/><circle cx="239" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="122" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="14" style="fill:var(--accent);opacity:.18"/></svg><span data-en="POTENCIAMOS TU PYME">POTENCIAMOS TU PYME</span></b><nav class="hnav"><a class="planbtn" href="planes.html" data-en="Plans &amp;amp; Pricing">Planes y Precios</a><button type="button" class="langbtn" id="langbtn">English</button></nav></header>
+
+  <div class="hero">
+    <p class="tag" data-en="Artificial intelligence consultancy">Consultora de inteligencia artificial</p>
+    <h1 data-en="Power up AI in your <em>SME</em>">Potencia la IA en tu <em>Pyme</em></h1>
+    <p class="lead" style="font-weight:600;color:var(--fg)" data-en="I am <strong style=&quot;color:var(--accent);font-weight:800&quot;>Francisco Aresi</strong>. I am finishing my degree in <strong style=&quot;color:var(--accent);font-weight:800&quot;>Global Business Management</strong> and I have proven experience in the <strong style=&quot;color:var(--accent);font-weight:800&quot;>Banking Sector, Consulting, Administration and Finance</strong>.">Soy <strong style="color:var(--accent);font-weight:800">Francisco Aresi</strong>. Estoy terminando la carrera de <strong style="color:var(--accent);font-weight:800">Dirección de Negocios Globales</strong> y tengo experiencia comprobable en el <strong style="color:var(--accent);font-weight:800">Sector Bancario, Consultoría, Administración y Finanzas</strong>.</p>
+    <p style="margin:28px 0 0;max-width:60ch;font-size:clamp(19px,2.8vw,24px);font-weight:800;line-height:1.3;text-transform:uppercase;letter-spacing:.01em;color:var(--fg)" data-en="We build your custom AI tailored to your business or venture">Armamos tu IA personalizada a la medida de tu negocio o emprendimiento</p>
+    <p class="lead" style="margin-top:20px;color:var(--fg)" data-en="<strong>I work with</strong> the following <strong style=&quot;color:var(--accent)&quot;>tools</strong>:"><strong>Trabajo con</strong> las siguientes <strong style="color:var(--accent)">herramientas</strong>:</p>
+    <div style="display:flex;flex-wrap:nowrap;gap:clamp(8px,2vw,22px);margin-top:28px;overflow-x:auto;padding-bottom:4px" role="list" aria-label="Herramientas">
+      <a role="listitem" class="tl" href="tool-powerbi.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">Power BI</span></a>
+      <a role="listitem" class="tl" href="tool-claude.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">Claude</span></a>
+      <a role="listitem" class="tl" href="tool-redes-neuronales.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6l7 6M5 18l7-6M19 6l-7 6M19 18l-7-6"/><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2" data-en="Neural Networks">Redes Neuronales</span></a>
+      <a role="listitem" class="tl" href="tool-wordpress.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M7 13h6M7 16h10"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">WordPress</span></a>
+      <a role="listitem" class="tl" href="tool-excel-ia.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2" data-en="Excel with AI">Excel con IA</span></a>
+      <a role="listitem" class="tl" href="tool-growth-marketing.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">Growth Marketing</span></a>
+      <a role="listitem" class="tl" href="tool-chatbots-ia.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13.5h.01M15 13.5h.01M9.5 17h5M2 13v3M22 13v3"/><circle cx="12" cy="3.5" r="1"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">Chatbots IA</span></a>
+      <a role="listitem" class="tl" href="tool-vercel.html" style="flex:1 0 108px"><span style="width:100px;height:100px;display:grid;place-items:center;background:var(--surface);border:2px solid var(--accent);border-radius:16px;color:var(--accent)"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5 4 4 0 0 1 17.5 18"/><path d="M12 21v-8M9 15.5l3-3 3 3"/></svg></span><span style="font-size:clamp(15px,1.9vw,18px);font-weight:700;line-height:1.2">Vercel</span></a>
+    </div>
+  </div>
+
+  <section>
+    <h2 data-en="What AI can do for your SME">Qué le puede aportar la IA a tu Pyme</h2>
+    <div style="display:grid;gap:18px;max-width:68ch;font-size:19px;color:var(--fg);font-weight:400">
+      <p style="margin:0" data-en="<strong style=&quot;color:var(--accent)&quot;>Time for what matters.</strong> AI takes care of repetitive day-to-day tasks, such as entering data, organizing spreadsheets, building reports and answering frequent questions. Your team focuses on selling and growing the business."><strong style="color:var(--accent)">Tiempo para lo que importa.</strong> La IA se encarga de las tareas repetitivas del día a día, como cargar datos, ordenar planillas, armar informes y responder consultas frecuentes. Tu equipo se dedica a vender y a hacer crecer el negocio.</p>
+      <p style="margin:0" data-en="<strong style=&quot;color:var(--accent)&quot;>Data-driven decisions.</strong> With Power BI and Excel integrated with AI, your numbers stop being scattered: sales, costs and stock on a single dashboard. You spot in time what is working and what is not."><strong style="color:var(--accent)">Decisiones con datos.</strong> Con Power BI y Excel integrados con IA, tus números dejan de estar dispersos: ventas, costos y stock en un solo tablero. Detectás a tiempo qué está funcionando y qué no.</p>
+      <p style="margin:0" data-en="<strong style=&quot;color:var(--accent)&quot;>Better service for your customers.</strong> Faster responses, follow-up on every inquiry, proposals, emails and content written in minutes, with the seriousness your company deserves."><strong style="color:var(--accent)">Mejor atención a tus clientes.</strong> Respuestas más rápidas, seguimiento de cada consulta, propuestas, mails y contenido redactados en minutos, con la seriedad que se merece tu empresa.</p>
+      <p style="margin:0" data-en="<strong style=&quot;color:var(--accent)&quot;>Fewer errors and more order.</strong> Automated processes always follow the same steps, so errors are reduced and everything is recorded."><strong style="color:var(--accent)">Menos errores y más orden.</strong> Los procesos automatizados siguen siempre los mismos pasos, así se reducen los errores y todo queda registrado.</p>
+      <p style="margin:0" data-en="<strong style=&quot;color:var(--accent)&quot;>A solution tailored to you.</strong> There is no one-size-fits-all plan for SMEs: we build the AI around what your company does and what your team needs."><strong style="color:var(--accent)">Una solución a tu medida.</strong> No hay un mismo plan para todas las Pymes: armamos la IA según lo que hace tu empresa y lo que tu equipo necesita.</p>
+    </div>
+  </section>
+
+  <section>
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;column-gap:18px;row-gap:6px">
+      <div style="display:contents">
+        <h2 style="font-weight:800;margin:0" data-en="I am passionate about what I do">Soy un apasionado de lo que hago</h2>
+        <p style="margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3.6vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--accent);text-wrap:balance" data-en="With experience in companies of different sizes">Con experiencia en empresas de diferente magnitud</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="Websites developed by us:">Páginas Web Desarrolladas por nosotros:</h2>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;gap:14px;align-items:baseline;font-family:var(--f-mono);font-size:clamp(20px,3.4vw,30px);line-height:1.3"><span style="color:var(--fg);font-weight:700">1)</span><a class="cta" href="https://claude.ai/artifact/HLH3zK2fuAhLs6S67dTFnp" target="_blank" rel="noopener" style="margin-top:0;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere">ContaPyme</a></div>
+      <div style="display:flex;gap:14px;align-items:baseline;font-family:var(--f-mono);font-size:clamp(20px,3.4vw,30px);line-height:1.3"><span style="color:var(--fg);font-weight:700">2)</span><a class="cta" href="https://geneticaglobal.com.ar" target="_blank" rel="noopener" style="margin-top:0;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere">Genética Global</a></div>
+      <div style="display:flex;gap:14px;align-items:baseline;font-family:var(--f-mono);font-size:clamp(20px,3.4vw,30px);line-height:1.3"><span style="color:var(--fg);font-weight:700">3)</span><a class="cta" href="https://claude.ai/artifact/LEfmxkyGDenZMeYgiGPX4L" target="_blank" rel="noopener" style="margin-top:0;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere">Abrazo Latente</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="Apps developed by us:">Apps Desarrolladas por nosotros:</h2>
+    <div style="display:flex;gap:14px;align-items:baseline;font-family:var(--f-mono);font-size:clamp(20px,3.4vw,30px);line-height:1.3"><a class="cta" href="https://claude.ai/artifact/NUogjPzfAHBYUafig3Kcj4" target="_blank" rel="noopener" style="margin-top:0;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere">App Conta Pyme</a></div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <p style="margin:0;font-size:clamp(20px,3.4vw,30px);line-height:1.3;overflow-wrap:anywhere"><strong data-en="Contact email:">Mail de contacto:</strong> <a class="addr" id="addr" href="mailto:fgaresi@gmail.com" style="font-family:var(--f-mono);color:var(--accent);text-decoration:underline;text-underline-offset:4px">fgaresi@gmail.com</a></p>
+  </section>
+
+  <section id="consulta" style="padding-block:48px 64px">
+    <h2 style="font-weight:800" data-en="Leave me your question">Dejame tu consulta</h2>
+    <form id="qf" style="display:grid;gap:18px;max-width:640px" novalidate>
+      <label style="display:grid;gap:6px;font-weight:600"><span data-en="Name">Nombre</span><input id="qn" name="nombre" type="text" required autocomplete="name" style="font:inherit;font-weight:400;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px"></label>
+      <label style="display:grid;gap:6px;font-weight:600"><span data-en="Email">Email</span><input id="qe" name="email" type="email" required autocomplete="email" style="font:inherit;font-weight:400;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px"></label>
+      <label style="display:grid;gap:6px;font-weight:600"><span data-en="Question">Consulta</span><textarea id="qm" name="consulta" rows="5" required style="font:inherit;font-weight:400;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;resize:vertical"></textarea></label>
+      <div><button type="submit" class="fli" id="qs" style="border:0;cursor:pointer;font-family:inherit" data-en="Send">Enviar</button></div>
+      <p id="qr" role="status" style="margin:0;min-height:1.4em;color:var(--accent);font-weight:600"></p>
+    </form>
+  </section>
+
+  <footer><span>Francisco Aresi</span><div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center"><a class="fli" href="https://www.linkedin.com/in/francisco-gabriel-aresi-la-valle-150a11170/" target="_blank" rel="noopener">LinkedIn</a><a class="fli" href="https://www.instagram.com/potenciamostupyme?cplk=MTZienA5NnJ6czdqNw==" target="_blank" rel="noopener">Instagram</a></div><span data-en="AI Consultancy">Consultora de IA</span></footer>
+</div>
+<script>
+(function(){
+  var KEY='lang',lang='es';
+  try{lang=localStorage.getItem(KEY)||'es'}catch(e){}
+  var els=[].slice.call(document.querySelectorAll('[data-en]'));
+  els.forEach(function(e){e.setAttribute('data-es',e.innerHTML)});
+  var btn=document.getElementById('langbtn');
+  function apply(l){
+    els.forEach(function(e){e.innerHTML=l==='en'?e.getAttribute('data-en'):e.getAttribute('data-es')});
+    document.documentElement.lang=l;
+    if(btn){btn.textContent=l==='en'?'Español':'English';btn.setAttribute('aria-label',l==='en'?'Traducir al español':'Translate to English')}
+    try{localStorage.setItem(KEY,l)}catch(e){}
+    lang=l;
+  }
+  if(btn)btn.addEventListener('click',function(){apply(lang==='en'?'es':'en')});
+  if(lang==='en')apply('en');
+})();
+</script>
+<script>
+(function(){
+  var c=document.getElementById('fx'); if(!c||!c.getContext)return;
+  var ctx=c.getContext('2d'),W=0,H=0,dpr=1,nodes=[],pulses=[],off=0,frame=0,last=0,spawn=0,raf=0;
+  var rgb=[31,79,216],dark=false,R=150;
+  var mq=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+  function hex(s){s=(s||'').trim();var m=/^#?([0-9a-f]{6})$/i.exec(s);if(!m)return null;var n=parseInt(m[1],16);return [n>>16&255,n>>8&255,n&255]}
+  function theme(){
+    var cs=getComputedStyle(document.documentElement);
+    var a=hex(cs.getPropertyValue('--accent')); if(a)rgb=a;
+    var b=hex(cs.getPropertyValue('--bg')); if(b)dark=(0.299*b[0]+0.587*b[1]+0.114*b[2])<110;
+  }
+  function col(a){return 'rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+a+')'}
+  function size(){
+    dpr=Math.min(2,window.devicePixelRatio||1);
+    W=window.innerWidth;H=window.innerHeight;
+    c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    R=W<600?110:150;
+    var n=Math.max(28,Math.min(80,Math.round(W*H/17000)));
+    nodes=[];
+    for(var i=0;i<n;i++){nodes.push({x:Math.random()*W,y:Math.random()*H*0.8,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()<.14?3.2:1.6,hub:Math.random()<.14})}
+    pulses=[];
+  }
+  function glow(x,y,r,a){
+    var g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,col(a));g.addColorStop(1,col(0));
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  }
+  function floor(){
+    var y0=H*0.7,hh=H-y0,cx=W/2,N=12;
+    var aMul=dark?1:0.75;
+    ctx.lineWidth=1;
+    for(var i=0;i<N;i++){
+      var p=((i+off)%N)/N, e=p*p;
+      var y=y0+hh*e;
+      ctx.strokeStyle=col((0.05+0.2*e)*aMul);
+      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
+    }
+    for(var k=-14;k<=14;k++){
+      var x0=cx+k*W*0.012, x1=cx+k*W*0.16;
+      var g=ctx.createLinearGradient(0,y0,0,H);
+      g.addColorStop(0,col(0));g.addColorStop(1,col(0.22*aMul));
+      ctx.strokeStyle=g;
+      ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,H);ctx.stroke();
+    }
+    var hg=ctx.createLinearGradient(0,y0-2,0,y0+30);
+    hg.addColorStop(0,col(0.12*aMul));hg.addColorStop(1,col(0));
+    ctx.fillStyle=hg;ctx.fillRect(0,y0-2,W,32);
+  }
+  function draw(dt){
+    ctx.clearRect(0,0,W,H);
+    glow(W*0.88,H*0.08,Math.max(W,H)*0.55,dark?0.2:0.11);
+    glow(W*0.05,H*0.95,Math.max(W,H)*0.45,dark?0.12:0.07);
+    floor();
+    var i,j,a,b,d,al;
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      a.x+=a.vx*dt*0.06;a.y+=a.vy*dt*0.06;
+      if(a.x<-20)a.x=W+20;else if(a.x>W+20)a.x=-20;
+      if(a.y<-20)a.y=H*0.8+20;else if(a.y>H*0.8+20)a.y=-20;
+    }
+    ctx.lineWidth=1;
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      for(j=i+1;j<nodes.length;j++){
+        b=nodes[j];d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<R){al=(1-d/R)*(dark?0.34:0.22);ctx.strokeStyle=col(al);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+      }
+    }
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      ctx.fillStyle=col(dark?0.85:0.55);
+      ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.2832);ctx.fill();
+      if(a.hub){ctx.strokeStyle=col(dark?0.5:0.35);ctx.beginPath();ctx.arc(a.x,a.y,a.r+5,0,6.2832);ctx.stroke()}
+    }
+    for(i=pulses.length-1;i>=0;i--){
+      var p=pulses[i];p.t+=dt*0.0011;
+      a=nodes[p.a];b=nodes[p.b];
+      if(p.t>=1||Math.hypot(a.x-b.x,a.y-b.y)>R){pulses.splice(i,1);continue}
+      var x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;
+      var g=ctx.createRadialGradient(x,y,0,x,y,14);
+      g.addColorStop(0,col(dark?0.95:0.8));g.addColorStop(1,col(0));
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,14,0,6.2832);ctx.fill();
+    }
+  }
+  function addPulse(){
+    for(var tries=0;tries<12;tries++){
+      var i=Math.floor(Math.random()*nodes.length),j=Math.floor(Math.random()*nodes.length);
+      if(i!==j&&Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y)<R*0.9){pulses.push({a:i,b:j,t:0});return}
+    }
+  }
+  function loop(ts){
+    var dt=Math.min(50,ts-(last||ts));last=ts;
+    off+=dt*0.0006;frame++;
+    if(frame%40===0)theme();
+    spawn-=dt;if(spawn<=0){addPulse();spawn=500+Math.random()*700}
+    draw(dt);
+    raf=requestAnimationFrame(loop);
+  }
+  function start(){
+    theme();size();
+    if(mq.matches){draw(0);return}
+    cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);
+  }
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();if(mq.matches)draw(0)},150)});
+  document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf)}else if(!mq.matches){last=0;raf=requestAnimationFrame(loop)}});
+  start();
+})();
+</script>
+<script>
+(function(){
+var f=document.getElementById('qf');if(!f)return;
+var r=document.getElementById('qr');
+function say(es,e){r.textContent=document.documentElement.lang==='en'?e:es}
+f.addEventListener('submit',function(ev){
+ ev.preventDefault();
+ var n=document.getElementById('qn').value.trim(),m=document.getElementById('qe').value.trim(),q=document.getElementById('qm').value.trim();
+ if(!n||!/^\S+@\S+\.\S+$/.test(m)||!q){say('Completá tu nombre, un email válido y tu consulta.','Please enter your name, a valid email and your question.');return}
+ var body='Nombre: '+n+'\nEmail: '+m+'\n\n'+q;
+ window.open('mailto:fgaresi@gmail.com?subject='+encodeURIComponent('Consulta desde la web')+'&body='+encodeURIComponent(body),'_top');
+ say('Se abrió tu correo con la consulta lista: solo tenés que enviarla.','Your email app opened with the message ready: just send it.');
+});
+})();
+</script>
+</body>
+</html>

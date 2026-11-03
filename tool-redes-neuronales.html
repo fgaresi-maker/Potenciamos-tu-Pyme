@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-en="Neural Networks">Redes Neuronales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&display=swap">
+<style>
+:root{--bg:#EDF0F3;--surface:#F8F9FB;--fg:#0F1A22;--muted:#53636F;--line:#C9D1D8;--accent:#1F4FD8;--accent-fg:#FFFFFF;
+--f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--f-body:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--f-mono:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1419;--surface:#121D24;--fg:#E8EEF2;--muted:#93A4B0;--line:#26343E;--accent:#6E9BFF;--accent-fg:#071433;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1419;--surface:#121D24;--fg:#E8EEF2;--muted:#93A4B0;--line:#26343E;--accent:#6E9BFF;--accent-fg:#071433;color-scheme:dark}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:16px;border-bottom:1px solid var(--line);font-size:clamp(17px,2.6vw,22px);letter-spacing:.06em;text-transform:uppercase}
+header .brand{display:flex;align-items:center;gap:14px;font-weight:600;color:var(--fg);text-decoration:none}
+.back{display:inline-flex;align-items:center;background:var(--accent);color:var(--accent-fg);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;padding:11px 20px;border-radius:4px;text-decoration:none}
+.back:hover{filter:brightness(1.08)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+main{padding-block:56px 40px}
+h1{font-weight:800;font-size:clamp(36px,7vw,72px);line-height:1;letter-spacing:-.03em;margin:0 0 32px;text-wrap:balance}
+
+      .plans{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+      .plans table{border-collapse:collapse;width:100%;min-width:520px;font-size:18px}
+      .plans th,.plans td{padding:16px 20px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+      .plans thead th{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:-.01em;border-bottom:2px solid var(--line)}
+      .plans thead th.pro{background:var(--accent);color:var(--accent-fg)}
+      .plans tbody th{font-weight:400}
+      .plans td{text-align:center;width:28%}
+      .plans td.pro{background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+      .plans thead th:not(:first-child){text-align:center}
+      .plans tbody tr:last-child th,.plans tbody tr:last-child td{border-bottom:0}
+      .plans .ck{color:var(--accent);font-weight:800;font-size:24px}
+      .plans .no{color:var(--muted);font-size:20px}
+      .plans .precio td{font-weight:600;font-size:16px}
+    
+.kicker{font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.def h2{font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:36px 0 10px}
+.def p{margin:0;max-width:62ch;font-size:clamp(18px,2.4vw,21px);line-height:1.55}
+.def p+p{margin-top:14px}
+.hnav{display:flex;align-items:center;gap:clamp(10px,2vw,20px);flex-wrap:wrap}
+#fx{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+.wrap{position:relative;z-index:1}
+.langbtn{font:inherit;font-family:var(--f-mono);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-fg);background:var(--accent);border:2px solid var(--accent);padding:9px 18px;border-radius:4px;cursor:pointer;line-height:1.6}
+.langbtn:hover{filter:brightness(1.08)}
+.contact{padding-block:24px 56px}
+footer{border-top:1px solid var(--line);padding-block:22px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <a class="brand" href="index.html"><svg viewBox="26 26 336 192" role="img" aria-label="Logo PTP Potenciamos Tu Pyme" style="display:block;width:clamp(130px,17vw,180px);height:auto;flex:none"><path d="M96 44 L135 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M239 44 L265 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M96 122 L187 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M187 122 L265 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M44 200 L44 44 L96 44 L122 70 L122 96 L96 122 L44 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M265 200 L265 44 L317 44 L343 70 L343 96 L317 122 L265 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M135 44 L239 44" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M187 44 L187 200" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><circle cx="44" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="200" r="6" style="fill:var(--fg)"/><circle cx="44" cy="44" r="6" style="fill:var(--fg)"/><circle cx="96" cy="44" r="6" style="fill:var(--fg)"/><circle cx="122" cy="70" r="6" style="fill:var(--fg)"/><circle cx="122" cy="96" r="6" style="fill:var(--fg)"/><circle cx="96" cy="122" r="6" style="fill:var(--fg)"/><circle cx="44" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="200" r="6" style="fill:var(--fg)"/><circle cx="265" cy="44" r="6" style="fill:var(--fg)"/><circle cx="317" cy="44" r="6" style="fill:var(--fg)"/><circle cx="343" cy="70" r="6" style="fill:var(--fg)"/><circle cx="343" cy="96" r="6" style="fill:var(--fg)"/><circle cx="317" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="122" r="6" style="fill:var(--fg)"/><circle cx="135" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="239" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="135" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="44" r="6" style="fill:var(--accent)"/><circle cx="239" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="122" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="14" style="fill:var(--accent);opacity:.18"/></svg><span data-en="POTENCIAMOS TU PYME">POTENCIAMOS TU PYME</span></a>
+    <nav class="hnav"><button type="button" class="langbtn" id="langbtn">English</button><a class="back" href="index.html" data-en="← Back">← Volver</a></nav>
+  </header>
+  <main class="def">
+    <p class="kicker" data-en="Tool">Herramienta</p>
+    <h1 data-en="Neural Networks">Redes Neuronales</h1>
+    <h2 data-en="What is it?">¿Qué es?</h2>
+    <p data-en="Neural networks are mathematical models inspired by how the brain works. They are made of layers of connected nodes that learn patterns from examples; they are the basis of much of today's artificial intelligence.">Las redes neuronales son modelos matemáticos inspirados en el funcionamiento del cerebro. Están formadas por capas de nodos conectados que aprenden patrones a partir de ejemplos; son la base de gran parte de la inteligencia artificial actual.</p>
+    <h2 data-en="How does it help your SME?">¿Cómo ayuda a tu Pyme?</h2>
+    <p data-en="Applied to an SME, they can help predict demand, classify customers or inquiries, detect unusual data and recognize text or images, always based on your own company's information.">Aplicadas a una Pyme pueden ayudar a predecir la demanda, clasificar clientes o consultas, detectar datos anómalos y reconocer texto o imágenes, siempre a partir de la información propia de tu empresa.</p>
+  </main>
+  <section class="contact">
+    <p style="margin:0;font-size:clamp(20px,3.4vw,30px);line-height:1.3;overflow-wrap:anywhere"><strong data-en="Contact email:">Mail de contacto:</strong> <a href="mailto:fgaresi@gmail.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">fgaresi@gmail.com</a></p>
+  </section>
+  <footer><span>Francisco Aresi</span><span data-en="AI Consultancy">Consultora de IA</span></footer>
+</div>
+
+<script>
+(function(){
+  var KEY='lang',lang='es';
+  try{lang=localStorage.getItem(KEY)||'es'}catch(e){}
+  var els=[].slice.call(document.querySelectorAll('[data-en]'));
+  els.forEach(function(e){e.setAttribute('data-es',e.innerHTML)});
+  var btn=document.getElementById('langbtn');
+  function apply(l){
+    els.forEach(function(e){e.innerHTML=l==='en'?e.getAttribute('data-en'):e.getAttribute('data-es')});
+    document.documentElement.lang=l;
+    if(btn){btn.textContent=l==='en'?'Español':'English';btn.setAttribute('aria-label',l==='en'?'Traducir al español':'Translate to English')}
+    try{localStorage.setItem(KEY,l)}catch(e){}
+    lang=l;
+  }
+  if(btn)btn.addEventListener('click',function(){apply(lang==='en'?'es':'en')});
+  if(lang==='en')apply('en');
+})();
+</script>
+
+<script>
+(function(){
+  var c=document.getElementById('fx'); if(!c||!c.getContext)return;
+  var ctx=c.getContext('2d'),W=0,H=0,dpr=1,nodes=[],pulses=[],off=0,frame=0,last=0,spawn=0,raf=0;
+  var rgb=[31,79,216],dark=false,R=150;
+  var mq=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+  function hex(s){s=(s||'').trim();var m=/^#?([0-9a-f]{6})$/i.exec(s);if(!m)return null;var n=parseInt(m[1],16);return [n>>16&255,n>>8&255,n&255]}
+  function theme(){
+    var cs=getComputedStyle(document.documentElement);
+    var a=hex(cs.getPropertyValue('--accent')); if(a)rgb=a;
+    var b=hex(cs.getPropertyValue('--bg')); if(b)dark=(0.299*b[0]+0.587*b[1]+0.114*b[2])<110;
+  }
+  function col(a){return 'rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+a+')'}
+  function size(){
+    dpr=Math.min(2,window.devicePixelRatio||1);
+    W=window.innerWidth;H=window.innerHeight;
+    c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    R=W<600?110:150;
+    var n=Math.max(28,Math.min(80,Math.round(W*H/17000)));
+    nodes=[];
+    for(var i=0;i<n;i++){nodes.push({x:Math.random()*W,y:Math.random()*H*0.8,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()<.14?3.2:1.6,hub:Math.random()<.14})}
+    pulses=[];
+  }
+  function glow(x,y,r,a){
+    var g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,col(a));g.addColorStop(1,col(0));
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  }
+  function floor(){
+    var y0=H*0.7,hh=H-y0,cx=W/2,N=12;
+    var aMul=dark?1:0.75;
+    ctx.lineWidth=1;
+    for(var i=0;i<N;i++){
+      var p=((i+off)%N)/N, e=p*p;
+      var y=y0+hh*e;
+      ctx.strokeStyle=col((0.05+0.2*e)*aMul);
+      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
+    }
+    for(var k=-14;k<=14;k++){
+      var x0=cx+k*W*0.012, x1=cx+k*W*0.16;
+      var g=ctx.createLinearGradient(0,y0,0,H);
+      g.addColorStop(0,col(0));g.addColorStop(1,col(0.22*aMul));
+      ctx.strokeStyle=g;
+      ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x1,H);ctx.stroke();
+    }
+    var hg=ctx.createLinearGradient(0,y0-2,0,y0+30);
+    hg.addColorStop(0,col(0.12*aMul));hg.addColorStop(1,col(0));
+    ctx.fillStyle=hg;ctx.fillRect(0,y0-2,W,32);
+  }
+  function draw(dt){
+    ctx.clearRect(0,0,W,H);
+    glow(W*0.88,H*0.08,Math.max(W,H)*0.55,dark?0.2:0.11);
+    glow(W*0.05,H*0.95,Math.max(W,H)*0.45,dark?0.12:0.07);
+    floor();
+    var i,j,a,b,d,al;
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      a.x+=a.vx*dt*0.06;a.y+=a.vy*dt*0.06;
+      if(a.x<-20)a.x=W+20;else if(a.x>W+20)a.x=-20;
+      if(a.y<-20)a.y=H*0.8+20;else if(a.y>H*0.8+20)a.y=-20;
+    }
+    ctx.lineWidth=1;
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      for(j=i+1;j<nodes.length;j++){
+        b=nodes[j];d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<R){al=(1-d/R)*(dark?0.34:0.22);ctx.strokeStyle=col(al);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+      }
+    }
+    for(i=0;i<nodes.length;i++){
+      a=nodes[i];
+      ctx.fillStyle=col(dark?0.85:0.55);
+      ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.2832);ctx.fill();
+      if(a.hub){ctx.strokeStyle=col(dark?0.5:0.35);ctx.beginPath();ctx.arc(a.x,a.y,a.r+5,0,6.2832);ctx.stroke()}
+    }
+    for(i=pulses.length-1;i>=0;i--){
+      var p=pulses[i];p.t+=dt*0.0011;
+      a=nodes[p.a];b=nodes[p.b];
+      if(p.t>=1||Math.hypot(a.x-b.x,a.y-b.y)>R){pulses.splice(i,1);continue}
+      var x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;
+      var g=ctx.createRadialGradient(x,y,0,x,y,14);
+      g.addColorStop(0,col(dark?0.95:0.8));g.addColorStop(1,col(0));
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,14,0,6.2832);ctx.fill();
+    }
+  }
+  function addPulse(){
+    for(var tries=0;tries<12;tries++){
+      var i=Math.floor(Math.random()*nodes.length),j=Math.floor(Math.random()*nodes.length);
+      if(i!==j&&Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y)<R*0.9){pulses.push({a:i,b:j,t:0});return}
+    }
+  }
+  function loop(ts){
+    var dt=Math.min(50,ts-(last||ts));last=ts;
+    off+=dt*0.0006;frame++;
+    if(frame%40===0)theme();
+    spawn-=dt;if(spawn<=0){addPulse();spawn=500+Math.random()*700}
+    draw(dt);
+    raf=requestAnimationFrame(loop);
+  }
+  function start(){
+    theme();size();
+    if(mq.matches){draw(0);return}
+    cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);
+  }
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();if(mq.matches)draw(0)},150)});
+  document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf)}else if(!mq.matches){last=0;raf=requestAnimationFrame(loop)}});
+  start();
+})();
+</script>
+</body>
+</html>
