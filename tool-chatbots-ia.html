@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-en="Custom AI Chatbots">Chatbots Personalizados de IA</title>
+<title data-en="Custom AI Chatbots" data-pt="Chatbots Personalizados de IA">Chatbots Personalizados de IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&display=swap">
@@ -47,6 +47,9 @@ h1{font-weight:800;font-size:clamp(36px,7vw,72px);line-height:1;letter-spacing:-
 .wrap{position:relative;z-index:1}
 .langbtn{font:inherit;font-family:var(--f-mono);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-fg);background:var(--accent);border:2px solid var(--accent);padding:9px 18px;border-radius:4px;cursor:pointer;line-height:1.6}
 .langbtn:hover{filter:brightness(1.08)}
+.langsel{font:inherit;font-family:var(--f-mono);font-weight:600;font-size:clamp(14px,2vw,18px);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-fg);background:var(--accent);border:2px solid var(--accent);padding:9px 14px;border-radius:4px;cursor:pointer;line-height:1.6}
+.langsel:hover{filter:brightness(1.08)}
+.langsel option{background:var(--surface);color:var(--fg);text-transform:none;letter-spacing:0}
 .contact{padding-block:24px 56px}
 footer{border-top:1px solid var(--line);padding-block:22px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </style>
@@ -55,39 +58,39 @@ footer{border-top:1px solid var(--line);padding-block:22px;font-size:12px;color:
 <canvas id="fx" aria-hidden="true"></canvas>
 <div class="wrap">
   <header>
-    <a class="brand" href="index.html"><svg viewBox="26 26 336 192" role="img" aria-label="Logo PTP Potenciamos Tu Pyme" style="display:block;width:clamp(130px,17vw,180px);height:auto;flex:none"><path d="M96 44 L135 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M239 44 L265 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M96 122 L187 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M187 122 L265 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M44 200 L44 44 L96 44 L122 70 L122 96 L96 122 L44 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M265 200 L265 44 L317 44 L343 70 L343 96 L317 122 L265 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M135 44 L239 44" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M187 44 L187 200" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><circle cx="44" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="200" r="6" style="fill:var(--fg)"/><circle cx="44" cy="44" r="6" style="fill:var(--fg)"/><circle cx="96" cy="44" r="6" style="fill:var(--fg)"/><circle cx="122" cy="70" r="6" style="fill:var(--fg)"/><circle cx="122" cy="96" r="6" style="fill:var(--fg)"/><circle cx="96" cy="122" r="6" style="fill:var(--fg)"/><circle cx="44" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="200" r="6" style="fill:var(--fg)"/><circle cx="265" cy="44" r="6" style="fill:var(--fg)"/><circle cx="317" cy="44" r="6" style="fill:var(--fg)"/><circle cx="343" cy="70" r="6" style="fill:var(--fg)"/><circle cx="343" cy="96" r="6" style="fill:var(--fg)"/><circle cx="317" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="122" r="6" style="fill:var(--fg)"/><circle cx="135" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="239" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="135" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="44" r="6" style="fill:var(--accent)"/><circle cx="239" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="122" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="14" style="fill:var(--accent);opacity:.18"/></svg><span data-en="POTENCIAMOS TU PYME">POTENCIAMOS TU PYME</span></a>
-    <nav class="hnav"><button type="button" class="langbtn" id="langbtn">English</button><a class="back" href="index.html" data-en="← Back">← Volver</a></nav>
+    <a class="brand" href="index.html"><svg viewBox="26 26 336 192" role="img" aria-label="Logo PTP Potenciamos Tu Pyme" style="display:block;width:clamp(130px,17vw,180px);height:auto;flex:none"><path d="M96 44 L135 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M239 44 L265 44" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M96 122 L187 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M187 122 L265 122" style="fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0.6"/><path d="M44 200 L44 44 L96 44 L122 70 L122 96 L96 122 L44 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M265 200 L265 44 L317 44 L343 70 L343 96 L317 122 L265 122" style="fill:none;stroke:var(--fg);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M135 44 L239 44" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><path d="M187 44 L187 200" style="fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/><circle cx="44" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="122" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="96" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="70" r="8.5" style="fill:var(--bg)"/><circle cx="343" cy="96" r="8.5" style="fill:var(--bg)"/><circle cx="317" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="265" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="44" cy="200" r="6" style="fill:var(--fg)"/><circle cx="44" cy="44" r="6" style="fill:var(--fg)"/><circle cx="96" cy="44" r="6" style="fill:var(--fg)"/><circle cx="122" cy="70" r="6" style="fill:var(--fg)"/><circle cx="122" cy="96" r="6" style="fill:var(--fg)"/><circle cx="96" cy="122" r="6" style="fill:var(--fg)"/><circle cx="44" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="200" r="6" style="fill:var(--fg)"/><circle cx="265" cy="44" r="6" style="fill:var(--fg)"/><circle cx="317" cy="44" r="6" style="fill:var(--fg)"/><circle cx="343" cy="70" r="6" style="fill:var(--fg)"/><circle cx="343" cy="96" r="6" style="fill:var(--fg)"/><circle cx="317" cy="122" r="6" style="fill:var(--fg)"/><circle cx="265" cy="122" r="6" style="fill:var(--fg)"/><circle cx="135" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="239" cy="44" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="122" r="8.5" style="fill:var(--bg)"/><circle cx="187" cy="200" r="8.5" style="fill:var(--bg)"/><circle cx="135" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="44" r="6" style="fill:var(--accent)"/><circle cx="239" cy="44" r="6" style="fill:var(--accent)"/><circle cx="187" cy="122" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="6" style="fill:var(--accent)"/><circle cx="187" cy="200" r="14" style="fill:var(--accent);opacity:.18"/></svg><span data-en="POTENCIAMOS TU PYME" data-pt="POTENCIAMOS TU PYME">POTENCIAMOS TU PYME</span></a>
+    <nav class="hnav"><select class="langsel" id="langsel" aria-label="Idioma / Language / Idioma"><option value="es">Español</option><option value="en">English</option><option value="pt">Português</option></select><a class="back" href="index.html" data-en="← Back" data-pt="← Voltar">← Volver</a></nav>
   </header>
   <main class="def">
-    <p class="kicker" data-en="Tool">Herramienta</p>
-    <h1 data-en="Custom AI Chatbots">Chatbots Personalizados de IA</h1>
-    <h2 data-en="What is it?">¿Qué es?</h2>
-    <p data-en="A custom AI chatbot is a conversational assistant trained on your company's information, such as your products, frequently asked questions and processes. It answers in natural language on the web, WhatsApp or other channels.">Un chatbot personalizado de IA es un asistente conversacional entrenado con la información de tu empresa, como tus productos, preguntas frecuentes y procesos. Responde en lenguaje natural por la web, WhatsApp u otros canales.</p>
-    <h2 data-en="How does it help your SME?">¿Cómo ayuda a tu Pyme?</h2>
-    <p data-en="It answers your customers' questions around the clock, organizes orders and hands over to a person when the case requires it, freeing up your team's time without losing a close relationship with the customer.">Atiende consultas de tus clientes a toda hora, ordena los pedidos y deriva a una persona cuando el caso lo requiere, liberando tiempo de tu equipo sin perder el trato cercano con el cliente.</p>
+    <p class="kicker" data-en="Tool" data-pt="Ferramenta">Herramienta</p>
+    <h1 data-en="Custom AI Chatbots" data-pt="Chatbots Personalizados de IA">Chatbots Personalizados de IA</h1>
+    <h2 data-en="What is it?" data-pt="O que é?">¿Qué es?</h2>
+    <p data-en="A custom AI chatbot is a conversational assistant trained on your company's information, such as your products, frequently asked questions and processes. It answers in natural language on the web, WhatsApp or other channels." data-pt="Um chatbot de IA personalizado é um assistente de conversa treinado com as informações da sua empresa, como seus produtos, perguntas frequentes e processos. Responde em linguagem natural na web, no WhatsApp ou em outros canais.">Un chatbot personalizado de IA es un asistente conversacional entrenado con la información de tu empresa, como tus productos, preguntas frecuentes y procesos. Responde en lenguaje natural por la web, WhatsApp u otros canales.</p>
+    <h2 data-en="How does it help your SME?" data-pt="Como ajuda a sua PME?">¿Cómo ayuda a tu Pyme?</h2>
+    <p data-en="It answers your customers' questions around the clock, organizes orders and hands over to a person when the case requires it, freeing up your team's time without losing a close relationship with the customer." data-pt="Responde às perguntas dos seus clientes 24 horas por dia, organiza pedidos e passa o atendimento a uma pessoa quando o caso exige, liberando o tempo da sua equipe sem perder a proximidade com o cliente.">Atiende consultas de tus clientes a toda hora, ordena los pedidos y deriva a una persona cuando el caso lo requiere, liberando tiempo de tu equipo sin perder el trato cercano con el cliente.</p>
   </main>
   <section class="contact">
-    <p style="margin:0;font-size:clamp(20px,3.4vw,30px);line-height:1.3;overflow-wrap:anywhere"><strong data-en="Contact email:">Mail de contacto:</strong> <a href="mailto:fgaresi@gmail.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">fgaresi@gmail.com</a></p>
+    <p style="margin:0;font-size:clamp(20px,3.4vw,30px);line-height:1.3;overflow-wrap:anywhere"><strong data-en="Contact email:" data-pt="E-mail de contato:">Mail de contacto:</strong> <a href="mailto:fgaresi@gmail.com" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">fgaresi@gmail.com</a></p>
   </section>
-  <footer><span>Francisco Aresi</span><span data-en="AI Consultancy">Consultora de IA</span></footer>
+  <footer><span>Francisco Aresi</span><span data-en="AI Consultancy" data-pt="Consultoria de IA">Consultora de IA</span></footer>
 </div>
 
 <script>
 (function(){
-  var KEY='lang',lang='es';
-  try{lang=localStorage.getItem(KEY)||'es'}catch(e){}
+  var KEY='lang',lang='es',L=['es','en','pt'];
+  try{var s=localStorage.getItem(KEY);if(L.indexOf(s)>-1)lang=s}catch(e){}
   var els=[].slice.call(document.querySelectorAll('[data-en]'));
   els.forEach(function(e){e.setAttribute('data-es',e.innerHTML)});
-  var btn=document.getElementById('langbtn');
+  var sel=document.getElementById('langsel');
   function apply(l){
-    els.forEach(function(e){e.innerHTML=l==='en'?e.getAttribute('data-en'):e.getAttribute('data-es')});
+    els.forEach(function(e){e.innerHTML=l==='en'?e.getAttribute('data-en'):l==='pt'?(e.getAttribute('data-pt')||e.getAttribute('data-es')):e.getAttribute('data-es')});
     document.documentElement.lang=l;
-    if(btn){btn.textContent=l==='en'?'Español':'English';btn.setAttribute('aria-label',l==='en'?'Traducir al español':'Translate to English')}
+    if(sel)sel.value=l;
     try{localStorage.setItem(KEY,l)}catch(e){}
     lang=l;
   }
-  if(btn)btn.addEventListener('click',function(){apply(lang==='en'?'es':'en')});
-  if(lang==='en')apply('en');
+  if(sel)sel.addEventListener('change',function(){apply(sel.value)});
+  if(lang!=='es')apply(lang);else if(sel)sel.value='es';
 })();
 </script>
 
